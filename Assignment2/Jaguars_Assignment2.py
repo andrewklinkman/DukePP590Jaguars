@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 #IMPORT AND CLEAN CER DATA----------------------------------------------------------------------------
-main_dir = "/Users/andrewklinkman/Dropbox/Duke/School Stuff 14-15/Spring 2015/PUBPOL 590/CER Stuff/raw/" #mac
+main_dir = "/Users/Jake/Desktop/Duke/Energy and Big Data/Data/" #mac
 #main_dir = "C:/Users/ask46/Dropbox/Duke/School Stuff 14-15/Spring 2015/PUBPOL 590/CER Stuff/raw/" #windows
 csv_file = "SME and Residential allocations.csv"
 time_file = "timeseries_correction_dst.csv"
@@ -144,4 +144,34 @@ tp_mth = tp_mth.reset_index(drop = True)
 
 
 ###GRAPHZZZZZZZZZZ###################################
+##MONTH GRAPH
+fig1 = plt.figure() # initialize plot
+ax1 = fig1.add_subplot(2,1,1) # two rows, one column, first plot
+ax1.plot(tp_mth['tstat'])
+ax1.axhline(2, color='r', linestyle='--')
+ax1.axvline(6, color = 'g', linestyle = '--')
+ax1.set_title('t-stats over-time (monthly)')
+
+ax2 = fig1.add_subplot(2,1,2) # two rows, one column, first plot
+ax2.plot(tp_mth['pval'])
+ax2.axhline(0.05, color='r', linestyle='--')
+ax2.set_title('p-values over-time (monthly)')
+ax2.axvline(6, color = 'g', linestyle = '--')
+
+## DAY GRAPH
+
+fig2 = plt.figure() # initialize plot
+ax3 = fig2.add_subplot(2,1,1) # two rows, one column, first plot
+ax3.plot(tp_day['tstat'])
+ax3.axhline(2, color='r', linestyle='--')
+ax3.axvline(171, color = 'g', linestyle = '--')
+ax3.set_title('t-stats over-time (daily)')
+
+ax4 = fig2.add_subplot(2,1,2) # two rows, one column, first plot
+ax4.plot(tp_day['pval'])
+ax4.axhline(0.05, color='r', linestyle='--')
+ax4.set_title('p-values over-time (daily)')
+ax4.axvline(171, color = 'g', linestyle = '--')
+
+
 
