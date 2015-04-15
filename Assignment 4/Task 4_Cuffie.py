@@ -73,8 +73,7 @@ df_merge = pd.merge(df_task4, df_w)
 
 #### 3.3i, Create necessary vars ------------------
 
-treat-trial = 
-# --->need to make treatment variable with log_kwh and ids?
+df_merge['trt_trial'] = (df['trt'] * df['trial'])
 
 ## 3.3ii Log kwh consumption var and YM var
 
@@ -87,9 +86,9 @@ df_merge['ym'] = df_merge['year'].apply(str) + "_" + df_merge['mo_str']
 
 # 3.4 set up regression variables
 
-y = ['log_kwh']
-T = ['0', '1']
-TP = df[treat-trial']
+y = df_merge['log_kwh'] # y should be one long vector of consump data
+T = df_merge['trt']
+TP =  df_merge['trt_trial']
 w = df['w']
 mu = pd.get_dummies(df['ym'], prefix = 'ym').iloc[:, 1:-1]
 
