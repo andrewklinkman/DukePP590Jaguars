@@ -11,7 +11,7 @@ alloc_file = "allocation_subsamp.csv"
 
 df_alloc = pd.read_csv(os.path.join(main_dir, alloc_file))
 
-treat = df_alloc.ID[df_alloc['tariff']=='E']
+control = df_alloc.ID[df_alloc['tariff']=='E']
 A1 = df_alloc.ID[(df_alloc['tariff'] == 'A') & (df_alloc['stimulus'] == '1')]
 A3= df_alloc.ID[(df_alloc['tariff'] == 'A') & (df_alloc['stimulus']=='3')]
 B1= df_alloc.ID[(df_alloc['tariff'] == 'B') & (df_alloc['stimulus']=='1')]
@@ -21,22 +21,20 @@ B3= df_alloc.ID[(df_alloc['tariff'] == 'B') & (df_alloc['stimulus']=='3')]
 np.random.seed(seed=1789)
 
 #pick randoms out
-treat_redux = DataFrame(np.random.choice(treat, 300, replace = False), columns = ['ID'])
+control_redux = DataFrame(np.random.choice(control, 300, replace = False), columns = ['ID'])
 A1_redux = DataFrame(np.random.choice(A1, 150, replace = False), columns = ['ID'])
 A3_redux = DataFrame(np.random.choice(A3, 150, replace = False), columns = ['ID'])
 B1_redux = DataFrame(np.random.choice(B1, 50, replace = False), columns = ['ID'])
 B3_redux = DataFrame(np.random.choice(B3, 50, replace = False), columns = ['ID'])
 
 #give group names (for aggregation later) Not the most elegant solution, but it works
-treat_redux['Group'] = 'Control'
+control_redux['Group'] = 'Control'
 A1_redux['Group'] = 'A1'
 A3_redux['Group'] = 'A3'
 B1_redux['Group'] = 'B1'
 B3_redux['Group'] = 'B3'
 
-df_samp = pd.concat([A1_redux,A3_redux, B1_redux, B3_redux, treat_redux], ignore_index = True)
-
-#df_samp = DataFrame(np.concatenate([A1_redux,A3_redux, B1_redux, B3_redux, treat_redux], axis = 0), columns = ['ID'])
+df_samp = pd.concat([control_redux,A1_redux,A3_redux, B1_redux, B3_redux], ignore_index = True)
 
 #pull in consump data
 consump_file = "kwh_redux_pretrail.csv"
@@ -75,7 +73,6 @@ df_wide.drop(['code', 'tariff', 'stimulus'], axis = 1, inplace = True)
 
 #SET UP DATA FOR LOGIT
 kwh_cols=[v for v in df_wide.columns.values if v.startswith('kwh')] #list of all vars you want from regression
-
 
 ##SET UP Y, X and RUN LOGIT
 #group A1
