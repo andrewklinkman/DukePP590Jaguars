@@ -1,0 +1,18 @@
+Section I:
+
+3i) Yes, because 2 of 5 of the kWh usage variables demonstrate significance under both tests (the ideal would be zero.) 
+
+3ii) There are only four significant variables in the logit, and 12 under Quick Means. This is to be expected because quick means test looks at each variable in isolation rather than considering effects of variables upon one another. Since there are two overlapping instances of significance (i.e. variables are shown to be significant under both logit and QM), we are less confident that we might be about whether imbalance exists. 
+
+3iii) Logit is more thorough and robust since it considers the effects of variables on one another. Quick Means is simpler and may pick up some some things that logit may miss, but it is less robust to changes in variables other than the one being considered. Since Logit is a regression, it is prone to multicollinearity and other pitfalls of regression.
+
+3iv) Question 410 is almost redundant and could be made completely so by better wording questions 420 and 43111. Furthermore, because most people do not have six+ adults or children in their homes, the categories of the two demographic questions could be collapsed into five options. Leaving it as is requires the logit function to eliminate some of the dummy variables as the categories have too few respondents. Questions 43521 and 5414 could demonstrate collinearity since they get at similar issues, especially how in touch with/interested in their energy use the respondent is. 
+
+Section III
+7i) The coefficient on TP becomes significant, and increasingly negative.
+
+7ii) The coefficient on TP tells us that there is a slight negative effect on consumption, but that this is not statistically significant. Therefore, we would tell CER that the C4 treatment was not effective (or formally, that we could not reject the hypothesis that it was ineffective).
+
+7iii) We would tell CER that the coefficient on TP tells us that there is a statistically significant, negative effect on consumption from treatment group C4.
+
+7iv) Yes, the purpose of the weighting technique is to enable the use of data sets which may be unbalanced or biased.
