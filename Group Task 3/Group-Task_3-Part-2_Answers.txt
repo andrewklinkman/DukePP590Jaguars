@@ -1,7 +1,7 @@
 Question 1
 Briefly explain the results of each different logit regression with the 2 variables you selected (which converge). Highlight any significant differences between the models and if there is any evidence of imbalance. Please be concise.
 
-In each of the runs A1, A3, B1, B3, using questions 200, 5414, and 405, we did not see any statistically significant P values (with the exception of “kwh_2009_07“ in model run A1, however the coefficient of the variable is so small that is likely has not impact of the probability of being selected for the treatment group). This stands to reason because adding more, independent variables enhances that balance of the data. In a runs of A1, A3, B1, B3, using questions 5414, and 405, but not 200, we observed several more statistically significant P values. 
+In each of the runs A1, A3, B1, B3, using questions 200, 5414, and 405, we did not see any statistically significant P values (with the exception of “kwh_2009_07“ in model run A1, however the coefficient of the variable is so small that is likely has not impact of the probability of being selected for the treatment group). **This stands to reason because adding more, independent variables enhances that balance of the data.**[DAN: How? I do not understand.] In a runs of A1, A3, B1, B3, using questions 5414, and 405, but not 200, **we observed several more statistically significant P values.**[D: Why do you suppose that is?] 
 
 Question 2
 Briefly explain the benefit(s) and potential problem(s) of using ALL the available survey variables in a logit regression. Please be concise.
