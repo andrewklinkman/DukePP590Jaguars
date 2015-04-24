@@ -18,7 +18,7 @@ df = df.dropna()
 
 ## get tariffs -------
 tariffs = [v for v in pd.unique(df['tariff']) if v !='E']
-stimuli = [v for v in pd.unique(df['stimulus']) if v !='E'] 
+stimuli = [v for v in pd.unique(df['stimulus']) if v !='E']
 
 tariffs.sort()
 stimuli.sort()
@@ -31,7 +31,7 @@ df_pretrial = df.drop(drop, axis=1)
 for i in tariffs:
     for j in stimuli:
             logit_results, df_logit = do_logit(df_pretrial, i, j, add_D=None, mc=False)
-            
+
 ## RUN QUICK MEANS
 
 grp = df_logit.groupby('tariff')
